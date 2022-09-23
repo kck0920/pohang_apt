@@ -1,6 +1,6 @@
-import streamlit as st
 import pandas as pd
-import plotly_express as px
+import plotly.express as px
+import streamlit as st
 
 
 # emojis: https://www.webfx.com/tools/emoji-cheat-sheet/
@@ -9,14 +9,23 @@ st.set_page_config(page_title = "포항 아파트 실거래가 현황",
                    layout = "wide",
 )
 
+# hidden hamburger menu
+hide_menu_style = """
+        <style>
+        #MainMenu {visibility: hidden;}
+        footer {visibility: hidden;}
+        header {visibility: hidden;}        
+        </style>
+        """
+st.markdown(hide_menu_style, unsafe_allow_html=True)
+
 # 데이터 읽기
-@st.cache
+# @st.cache
 def data_upload():
   df = pd.read_csv("포항_아파트_실거래가_현황.csv")
   return df
 
 df = data_upload()
-st.dataframe(df)
 
 # ----- 단지 선택 -----
 단지명 = st.sidebar.selectbox(
@@ -27,6 +36,28 @@ st.dataframe(df)
 df_selection = df.query(
     "단지명 == @단지명"
 )
+
+# ----- 선택한 단지 엑셀로 저장 -----
+df_selection.to_csv(
+    "real_transaction_price.csv",
+    sep = ",",
+    na_rep = 'NaN',
+    float_format = '%.2f',
+    index = False
+)
+
+df = pd.read_csv("real_transaction_price.csv")
+
+# ----- 전용면적 별로 정렬하기 -----
+전용면적 = st.sidebar.selectbox(
+    "전용면적 선택",
+    options = df["전용면적"].unique()
+)
+
+df_selection = df.query(
+    "전용면적 == @전용면적"
+)
+
 
 # ----- MAINPAGE -----
 st.title(":chart_with_upwards_trend: 2022년 포항 주요 아파트 실거래 현황")
@@ -66,8 +97,8 @@ fig = px.line(
 )
 
 fig.update_layout(
-    width = 900,
-    height = 550,
+    # width = 900,
+    # height = 550,
     paper_bgcolor = "#0083B8",
     plot_bgcolor = "rgb(223, 100, 200)",
     xaxis=dict(showgrid=False),
@@ -84,3 +115,4 @@ fig.update_traces(
 fig.update_xaxes(title_font_family="Arial")
 
 st.plotly_chart(fig)
+st.dataframe(df)
