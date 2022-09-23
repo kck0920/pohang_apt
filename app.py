@@ -1,3 +1,4 @@
+from re import A
 import pandas as pd
 import plotly.express as px
 import streamlit as st
@@ -115,4 +116,5 @@ fig.update_traces(
 fig.update_xaxes(title_font_family="Arial")
 
 st.plotly_chart(fig)
-st.dataframe(df)
+st.markdown("---")
+st.dataframe(df_selection)
