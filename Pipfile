@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 plotly-express = "*"
+streamlit-lottie = "*"
 
 [dev-packages]
 
