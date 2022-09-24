@@ -49,6 +49,10 @@ st.markdown("""
 st.markdown("""
             ### :arrow_left: 좌측 메뉴를 이용하세요.
             """)
+st.markdown("""
+            ### :computer: 현 사이트는 PC와 태블릿에 최적화 되어 있습니다.
+            ### :mobile_phone_off: 모바일을 이용하시려면 가로로 이용하세요.
+            """)
 
 load_access= load_lottieurl("https://assets7.lottiefiles.com/packages/lf20_0jQBogOQOn.json")
 st_lottie(load_access, width=700, key="access")
