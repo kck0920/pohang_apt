@@ -91,7 +91,7 @@ lottie_title = load_lottieurl("https://assets9.lottiefiles.com/packages/lf20_yg3
 with st.container():
     left_column, right_column = st.columns((1,7))
     with left_column:
-        st_lottie(lottie_title, width=80, height=80, key="title")
+        st_lottie(lottie_title, width=100, height=100, key="title")
     with right_column:
         st.title("2022년 포항 주요 아파트 실거래 현황")
 
