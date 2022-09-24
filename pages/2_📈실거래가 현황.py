@@ -8,10 +8,10 @@ from streamlit_lottie import st_lottie
 
 
 # emojis: https://www.webfx.com/tools/emoji-cheat-sheet/
-st.set_page_config(page_title = "포항 아파트 실거래가 현황",
-                page_icon = ":chart_with_upwards_trend:",
-                layout = "wide",
-)
+# st.set_page_config(page_title = "포항 아파트 실거래가 현황",
+#                 page_icon = ":chart_with_upwards_trend:",
+#                 layout = "wide",
+# )
 
 # Lottie Animation!!!
 # GitHub: https://github.com/andfanilo/streamlit-Lottie
@@ -89,13 +89,13 @@ lottie_title = load_lottieurl("https://assets9.lottiefiles.com/packages/lf20_yg3
 
 # ----- MAINPAGE -----
 with st.container():
-    left_column, right_column = st.columns((1,7))
+    left_column, right_column = st.columns((1,6))
     with left_column:
         st_lottie(lottie_title, width=100, height=100, key="title")
     with right_column:
-        st.title("2022년 포항 주요 아파트 실거래 현황")
+        st.title("포항 주요 아파트 실거래 현황")
 
-st.markdown(":star2: 이 사이트는 \"국토교통부 실거래가 공개시스템\"을 기초로 작성되었음을 알려드립니다.")
+st.markdown(":star2: 본 사이트는 \"국토교통부 실거래가 공개시스템\"을 기초로 작성되었음을 알려드립니다.")
 
 
 # ----- 최고가 최저가 보여주기 -----
@@ -104,12 +104,17 @@ high_price = df_selection["거래금액(만원)"].max()
 danji = df["단지명"].unique()
 
 with st.container(): 
-    col1, col2, col3, col4 = st.columns([1,1,1,1])
+    col1, col2 = st.columns((1,4))
 
-    col1.markdown(" ### :house: 단지명")
-    col1.subheader(f": {danji}")
-    col2.markdown(" ### :high_brightness: 최고금액")
-    col2.subheader(f": {high_price}만원")
+    col1.markdown(" ### :house: 단지명 : ")
+    col2.subheader(f"{danji}")
+    
+with st.container(): 
+    col1, col2, col3 = st.columns((2,1,1))
+
+    col1.markdown(" ### :high_brightness: 최고금액")
+    col1.subheader(f": {high_price}만원")
+    col2.empty()
     col3.markdown(" ### :low_brightness: 최저금액")
     col3.subheader(f": {low_price}만원")
 
@@ -129,8 +134,8 @@ fig = px.line(
 )
 
 fig.update_layout(
-    width = 850,
-    height = 550,
+    # width = 850,
+    # height = 550,
     paper_bgcolor = "#0083B8",
     plot_bgcolor = "rgb(223, 100, 200)",
     xaxis=dict(showgrid=False),
@@ -162,7 +167,6 @@ fig.update_xaxes(title_font_family="Arial")
 # )
 
 
-lottie_coding = load_lottieurl("https://assets10.lottiefiles.com/packages/lf20_0jQBogOQOn.json")
 lottie_file = load_lottieurl("https://assets10.lottiefiles.com/packages/lf20_ABViugg18Y.json")
 
 
@@ -180,30 +184,7 @@ with st.container():
     st.markdown("### :file_folder: 선택한 데이터 상세")
     left_column, right_column = st.columns((1, 1))
     with left_column:
-        st_lottie(lottie_file, height = 400, key = "file")
+        st_lottie(lottie_file, height = 250, key = "file")
     with right_column:
         st.markdown("#")
         st.dataframe(df_selection, width = 750)
-        
-# ----- CONTACT -----
-with st.container():
-    st.write("---")
-    st.markdown("### :mailbox: 문의사항은 저에게...")
-    st.write("##")
-    
-    # documention: http://formsubmit.co/ !! CHANGE EMAIL ADDRESS!!!
-    contact_form = """
-        <form action="https://formsubmit.co/kck0920@gmail.com" method="POST">
-        <input type="text" name="name" placeholder="Your name" required>
-        <input type="email" name="email" placeholder ="Your email" required>
-        <textarea name="message" placeholder="Your message here" required></textarea>
-        <button type="submit">Send</button>
-        </form>
-    """
-    left_column, right_column = st.columns(2)
-    with left_column:
-        st.write(":email: 확인하면 바로 연락드릴게요!")
-        st.markdown("#")
-        st.markdown(contact_form, unsafe_allow_html=True)
-    with right_column:
-        st_lottie(lottie_coding, height = 400, key="coding")

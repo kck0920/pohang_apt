@@ -1,22 +1,16 @@
+import sys, os
+sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
+
 import json
+from app import load_lottiefile
+from app import load_lottieurl
 
 import requests
 import streamlit as st
 from streamlit_lottie import st_lottie
 
 
-def load_lottiefile(filepath: str):
-    with open(filepath, 'r') as f:
-        return json.load(f)
-    
-def load_lottieurl(url: str):
-    r = requests.get(url)
-    if r.status_code !=200:
-        return None
-    return r.json()
-
-lottie_coding = load_lottieurl("https://assets10.lottiefiles.com/packages/lf20_0jQBogOQOn.json")
-lottie_file = load_lottieurl("https://assets10.lottiefiles.com/packages/lf20_ABViugg18Y.json")
+lottie_email = load_lottieurl("https://assets1.lottiefiles.com/packages/lf20_1gekp2md.json")
 
 # Use Local CSS
 def local_css(file_name):
@@ -46,4 +40,4 @@ with st.container():
         st.markdown("#")
         st.markdown(contact_form, unsafe_allow_html=True)
     with right_column:
-        st_lottie(lottie_coding, height = 400, key="coding")
+        st_lottie(lottie_email, height = 400, key="coding")
