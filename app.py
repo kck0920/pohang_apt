@@ -1,5 +1,4 @@
 import json
-from turtle import width
 
 import requests
 import pandas as pd

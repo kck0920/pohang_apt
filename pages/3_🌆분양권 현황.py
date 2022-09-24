@@ -16,15 +16,15 @@ from app import load_lottieurl
 # GitHub: https://github.com/andfanilo/streamlit-Lottie
 # Lottie Files: https://Lottiefiles.com/
 
-def load_lottiefile(filepath: str):
-    with open(filepath, 'r') as f:
-        return json.load(f)
+# def load_lottiefile(filepath: str):
+#     with open(filepath, 'r') as f:
+#         return json.load(f)
     
-def load_lottieurl(url: str):
-    r = requests.get(url)
-    if r.status_code !=200:
-        return None
-    return r.json()
+# def load_lottieurl(url: str):
+#     r = requests.get(url)
+#     if r.status_code !=200:
+#         return None
+#     return r.json()
 
 # Use Local CSS
 def local_css(file_name):
