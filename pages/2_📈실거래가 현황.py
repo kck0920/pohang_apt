@@ -107,7 +107,7 @@ danji = df["단지명"].unique()
 
 with st.container(): 
     col1, col2 = st.columns((1,4))
-
+    
     col1.markdown(" ### :house: 단지명 : ")
     col2.subheader(f"{danji}")
     
