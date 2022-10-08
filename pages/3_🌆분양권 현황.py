@@ -14,7 +14,6 @@ from app import local_css
 
 local_css("css/style.css")
 
-
 # 데이터 읽기
 @st.cache
 def data_upload():

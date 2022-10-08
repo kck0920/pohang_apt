@@ -1,5 +1,6 @@
 import sys, os
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
+# from pathlib import Path
 
 import json
 import requests
@@ -9,6 +10,9 @@ import streamlit as st
 from streamlit_lottie import st_lottie
 from app import load_lottieurl
 from app import local_css
+
+# --- PATH SETTINGS ---
+# current_path = Path(__file__).parent if "__file__" in locals() else Path.cwd()
 
 local_css("css/style.css")
 
@@ -136,7 +140,6 @@ fig.update_xaxes(title_font_family="Arial")
 
 
 lottie_file = load_lottieurl("https://assets10.lottiefiles.com/packages/lf20_ABViugg18Y.json")
-
 
 with st.container():
     st.markdown("---")
