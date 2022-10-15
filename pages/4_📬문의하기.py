@@ -28,7 +28,7 @@ with st.container():
         <form action="https://formsubmit.co/kck0920@gmail.com" method="POST">
         <input type="text" name="name" placeholder="당신의 이름은?" required>
         <input type="email" name="email" placeholder ="당신의 이메일" required>
-        <textarea name="message" placeholder="여기에 메지를 입력해주세요." required></textarea>
+        <textarea name="message" placeholder="여기에 내용을 입력해주세요." required></textarea>
         <button type="submit">Send</button>
         </form>
     """
