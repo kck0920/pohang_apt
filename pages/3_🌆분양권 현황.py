@@ -2,7 +2,7 @@ import sys, os
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 
 import json
-import requests
+# import requests
 import pandas as pd
 import plotly.express as px
 import streamlit as st
