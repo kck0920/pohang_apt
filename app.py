@@ -54,4 +54,4 @@ st.markdown("""
             """)
 
 load_access= load_lottieurl("https://assets7.lottiefiles.com/packages/lf20_0jQBogOQOn.json")
-st_lottie(load_access, width=700, key="access"일
+st_lottie(load_access, width=700, key="access")
