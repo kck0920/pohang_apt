@@ -50,7 +50,7 @@ st.markdown("""
 st.markdown("""
             ### :computer: 현 사이트는 PC와 태블릿에 최적화 되어 있습니다.
             ### :mobile_phone_off: 모바일을 이용하시려면 가로로 이용하세요.
-            ### :date: 최종 업데이트: 2023년 5월 13일 
+            ### :date: 최종 업데이트: 2023년 5월 20일 
             """)
 
 load_access= load_lottieurl("https://assets7.lottiefiles.com/packages/lf20_0jQBogOQOn.json")
