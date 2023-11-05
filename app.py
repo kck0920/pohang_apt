@@ -41,7 +41,7 @@ with st.container():
     with right_column:
         st.title("포항 아파트 실거래 / 분양권 현황")
 st.markdown("""
-            ### :white_check_mark: 2022년 국토교통부 실거래가 공개시스템의 데이타를 기초로 작성 되었음을 알려드립니다.
+            ### :white_check_mark: 2023년 국토교통부 실거래가 공개시스템의 데이타를 기초로 작성 되었음을 알려드립니다.
             ### :clock9: 특별한 사유가 없는 한 매주 토요일에 한번씩 업데이트 할 예정입니다. 
             """)
 st.markdown("""
@@ -50,7 +50,7 @@ st.markdown("""
 st.markdown("""
             ### :computer: 현 사이트는 PC와 태블릿에 최적화 되어 있습니다.
             ### :mobile_phone_off: 모바일을 이용하시려면 가로로 이용하세요.
-            ### :date: 최종 업데이트: 2023년 7월 8일 
+            ### :date: 최종 업데이트: 2023년 11월 4일 
             """)
 
 load_access= load_lottieurl("https://assets7.lottiefiles.com/packages/lf20_0jQBogOQOn.json")
